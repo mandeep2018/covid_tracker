@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>COVID Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+
+  <body>
+  
+  	<div class="container">
+  	<h1>Coronavirus tracker application</h1>
+  	<p>This app shows the number of cases across India states</p>
+  	
+  	<div class="jumbotron">
+  		 <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+ 		 <p class="lead">Total cases as of today</p>
+	</div>
+  	
+    <table class="table">
+    <thead>Covid details  : </thead>
+    <tr>
+    	<th>Country</th>
+    	<th>State</th>
+    	<th>Active Cases</th>
+    	<th>Change since last day</th>
+    <tr data-th-each="stat : ${allStats}">
+        <td data-th-text="${stat.country}">...</td>
+        <td data-th-text="${stat.state}">...</td>
+        <td data-th-text="${stat.activeCases}">0</td>
+        <td data-th-text="${stat.diffFromPrevDay}">0</td>  
+    </tr>
+	</table>
+	</div>
+  
+  </body>
+
+</html>
+
